@@ -260,6 +260,7 @@ Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conf
     - col metodo destroy elimino un fumetto specifico dal database.
 - Creo la cartella comics (all'interno della cartella views), per creare a sua volta dei file php che dei risultato video per ciacun metodo crud.
     - creo index.blade.php: per il form di creazione per per un nuovo recordo nel databse (qui imposto che il codice necessario per il metodo delete).
+    - creo create.blade.php per il form di creazione.
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
