@@ -96,10 +96,10 @@ class ComicController extends Controller
             'sale_date' => 'required|date',
             'type' => 'required|string|max:255',
         ]);
-    
+
         // Aggiorna i dati del fumetto
         $comic->update($validatedData);
-    
+
         // Redirezione con un messaggio di successo
         return redirect()->route('comics.index')->with('success', 'Comic updated successfully');
     }
@@ -112,6 +112,11 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        // Elimina il fumetto
+        $comic->delete();
+    
+        // Redirezione con un messaggio di successo
+        return redirect()->route('comics.index')->with('success', 'Comic deleted successfully');
     }
+
 }
