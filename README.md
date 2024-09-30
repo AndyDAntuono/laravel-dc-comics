@@ -252,7 +252,7 @@ Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conf
     - avendo riscontrato un errore relativo al limite dei caratteri della colonna thumb della tabella relativa ai fumetti, la modifico da "string" a "text" per aggirare il limite dei caratteri
     - lancio il comando php artisan migrate:fresh per applicare i cambiamenti rispetto alla migrazione precedente
 - nel modello Comic.php, imposto i campi come "fillable" per l'inserimento dei dati di massa.
-
+- modifico il file web.php per registrare le rotte resource per il controller ComicController.
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
