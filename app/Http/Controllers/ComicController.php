@@ -14,8 +14,11 @@ class ComicController extends Controller
      */
     public function index()
     {
+        // Recupera tutti i fumetti dal database (se necessario)
         $comics = Comic::all();
-        return view('comics.index', compact('comics'));
+    
+        // Restituisci la vista 'index.blade.php' con i dati (opzionale)
+        return view('index', ['comics' => $comics]);
     }
 
     /**
@@ -114,7 +117,7 @@ class ComicController extends Controller
     {
         // Elimina il fumetto
         $comic->delete();
-    
+
         // Redirezione con un messaggio di successo
         return redirect()->route('comics.index')->with('success', 'Comic deleted successfully');
     }
