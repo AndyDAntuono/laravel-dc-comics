@@ -248,6 +248,9 @@ Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conf
 - modifico la migration 2024_09_30_163634_create_comics_table.php per includere i campi necessari, dopo di che lancio il comando php artisan migrate per eseguire la migrazione.
 - lancio il comando php artisan make:seeder ComicSeeder per popolare la tabella dei fumetti forniti dalla consegna.
 - creo il file comics.php (da inserire nella cartella config) per la configurazione dei dati relativi ai fumetti (per una questione di tempistiche lascio perdere le informazioni relative a writers e artits).
+- eseguo il comando php artisan db:seed --class=ComicSeeder
+    - avendo riscontrato un errore relativo al limite dei caratteri della colonna thumb della tabella relativa ai fumetti, la modifico da "string" a "text" per aggirare il limite dei caratteri
+    - lancio il comando php artisan migrate:fresh per applicare i cambiamenti rispetto alla migrazione precedente
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 

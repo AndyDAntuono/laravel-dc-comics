@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('thumb');
+            $table->text('thumb');  //modifico la colonna in modo di non avere nessun limite di 255 caratteri
             $table->decimal('price', 5, 2);
             $table->string('series');
             $table->date('sale_date');
