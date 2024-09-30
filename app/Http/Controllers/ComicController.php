@@ -11,10 +11,9 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        return view('comics.index', ['comics' => $comics]); // Assicurati che 'comics.index' sia il percorso giusto
+        return view('comics.index', ['comics' => $comics]); 
     }
 
-    // Mostra il form per creare un nuovo fumetto
     public function create()
     {
         return view('comics.create'); // Ritorna la vista per creare un nuovo fumetto
@@ -33,14 +32,14 @@ class ComicController extends Controller
     public function show($id)
     {
         $comic = Comic::findOrFail($id);
-        return view('comics.show', ['comic' => $comic]); // Assicurati che 'comics.show' esista
+        return view('comics.show', ['comic' => $comic]); 
     }
 
     // Mostra il form per modificare un fumetto
     public function edit($id)
     {
         $comic = Comic::findOrFail($id);
-        return view('comics.edit', ['comic' => $comic]); // Assicurati che 'comics.edit' esista
+        return view('comics.edit', ['comic' => $comic]); 
     }
 
     // Aggiorna un fumetto esistente nel database
