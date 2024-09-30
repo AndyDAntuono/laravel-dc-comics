@@ -254,10 +254,12 @@ Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conf
 - nel modello Comic.php, imposto i campi come "fillable" per l'inserimento dei dati di massa.
 - modifico il file web.php per registrare le rotte resource per il controller ComicController.
 - modifico il ComicController.php per gestire le operazioni CRUD.
-    - Con il metodo store del ComicController, ricevo i dati dal form e crei un nuovo record nel database.
-    - Col metodo index recupero tutti i fumetti, mentre col il metodo show recupero un singolo fumetto.
-    - Con metodo edit recupero i dati del fumetto da modificare, mentre col metodo update applico le modifiche.
-    - Col metodo destroy elimino un fumetto specifico dal database.
+    - con il metodo store del ComicController, ricevo i dati dal form e crei un nuovo record nel database.
+    - col metodo index recupero tutti i fumetti, mentre col il metodo show recupero un singolo fumetto.
+    - con metodo edit recupero i dati del fumetto da modificare, mentre col metodo update applico le modifiche.
+    - col metodo destroy elimino un fumetto specifico dal database.
+- Creo la cartella comics (all'interno della cartella views), per creare a sua volta dei file php che dei risultato video per ciacun metodo crud.
+    - creo index.blade.php: per il form di creazione per per un nuovo recordo nel databse (qui imposto che il codice necessario per il metodo delete).
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
