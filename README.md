@@ -262,7 +262,11 @@ Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conf
     - creo index.blade.php: per il form di creazione per per un nuovo recordo nel databse (qui imposto che il codice necessario per il metodo delete).
     - creo create.blade.php per il form di creazione.
         - dato che sono ciuccio, non avevo ancora impostato una home per tutte le views
-        - dato che sono ciuccio, non mi ero accorto di non aver creato i laout comune per tutte le views
+        - dato che sono ciuccio, non mi ero accorto di non aver creato i layout comune per tutte le views
+    - creo show.blade.php per visaulizzare un singolo fumetto
+    - creo update.blade.php per rendere possibile la modifica di un fumetto esistente.
+
+NB: non riesco a visualizzare correttamente le views, ma almeno ci dovrebero essere tutti i file della repo.
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
