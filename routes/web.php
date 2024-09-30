@@ -3,18 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComicController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Route per la home
+Route::get('/', function () {
+    return view('home'); // Ritorna la vista 'home.blade.php'
+});
 
-Route::get('/', [ComicController::class, 'index'])->name('comics.home');
-
+// Routes per il CRUD dei fumetti
 Route::resource('comics', ComicController::class);
+
 

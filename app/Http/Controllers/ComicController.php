@@ -7,119 +7,58 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Mostra la lista dei fumetti
     public function index()
     {
-        // Recupera tutti i fumetti dal database (se necessario)
         $comics = Comic::all();
-    
-        // Restituisci la vista 'index.blade.php' con i dati (opzionale)
-        return view('index', ['comics' => $comics]);
+        return view('comics.index', ['comics' => $comics]); // Assicurati che 'comics.index' sia il percorso giusto
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Mostra il form per creare un nuovo fumetto
     public function create()
     {
-        //
+        return view('comics.create'); // Ritorna la vista per creare un nuovo fumetto
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Salva un nuovo fumetto nel database
     public function store(Request $request)
     {
-        // Validazione dei dati
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'thumb' => 'required|url',
-            'price' => 'required|numeric',
-            'series' => 'required|string|max:255',
-            'sale_date' => 'required|date',
-            'type' => 'required|string|max:255',
-        ]);
-        
-        // Creazione del nuovo fumetto
-        Comic::create($validatedData);
-        
-        // Redirezione alla pagina principale con un messaggio di successo
-        return redirect()->route('comics.index')->with('success', 'Comic created successfully');
+        $comic = new Comic($request->all());
+        $comic->save();
+
+        return redirect()->route('comics.index'); // Reindirizza alla lista dei fumetti
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comic $comic)
+    // Mostra un singolo fumetto
+    public function show($id)
     {
-        return view('comics.show', compact('comic'));
+        $comic = Comic::findOrFail($id);
+        return view('comics.show', ['comic' => $comic]); // Assicurati che 'comics.show' esista
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comic $comic)
+    // Mostra il form per modificare un fumetto
+    public function edit($id)
     {
-        return view('comics.edit', compact('comic'));
+        $comic = Comic::findOrFail($id);
+        return view('comics.edit', ['comic' => $comic]); // Assicurati che 'comics.edit' esista
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Comic $comic)
+    // Aggiorna un fumetto esistente nel database
+    public function update(Request $request, $id)
     {
-        // Validazione dei dati
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'thumb' => 'required|url',
-            'price' => 'required|numeric',
-            'series' => 'required|string|max:255',
-            'sale_date' => 'required|date',
-            'type' => 'required|string|max:255',
-        ]);
+        $comic = Comic::findOrFail($id);
+        $comic->update($request->all());
 
-        // Aggiorna i dati del fumetto
-        $comic->update($validatedData);
-
-        // Redirezione con un messaggio di successo
-        return redirect()->route('comics.index')->with('success', 'Comic updated successfully');
+        return redirect()->route('comics.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Comic $comic)
+    // Cancella un fumetto
+    public function destroy($id)
     {
-        // Elimina il fumetto
+        $comic = Comic::findOrFail($id);
         $comic->delete();
 
-        // Redirezione con un messaggio di successo
-        return redirect()->route('comics.index')->with('success', 'Comic deleted successfully');
+        return redirect()->route('comics.index');
     }
-
 }
+
