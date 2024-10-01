@@ -33,7 +33,7 @@ return [
         "thumb" => "https://imgs.search.brave.com/YET9wY29Aa29TyHqlbieS9qsz3HWyNYQx-WkRqdBRX4/rs:fit:640:984:1/g:ce/aHR0cDovL2dldHlv/dXJjb21pY29uLmNv/LnVrL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDE2LzA4L2JhdGdp/cmwtcmViaXJ0aC0x/LWNvdmVyLmpwZw",
         "price" => "$2.99",
         "series" => "Batgirl",
-        "sale_date" => "2016-07-274",
+        "sale_date" => "2016-07-24",
         "type" => "comic book"
     ],
     [
