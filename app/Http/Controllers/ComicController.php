@@ -62,14 +62,35 @@ class ComicController extends Controller
         return view('comics.edit', ['comic' => $comic]); 
     }
 
-    // Aggiorna un fumetto esistente nel database
+    //// Aggiorna un fumetto esistente nel database
+    //public function update(Request $request, $id)
+    //{
+    //    $comic = Comic::findOrFail($id);
+    //    $comic->update($request->all());
+//
+    //    return redirect()->route('comics.index');
+    //}
+
     public function update(Request $request, $id)
     {
+        // Validazione
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumb' => 'required|url',
+            'price' => 'required|numeric|min:0',
+            'series' => 'required|string|max:255',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:50',
+        ]);
+    
+        // Troviamo il fumetto esistente e lo aggiorniamo
         $comic = Comic::findOrFail($id);
-        $comic->update($request->all());
-
-        return redirect()->route('comics.index');
+        $comic->update($validatedData);
+    
+        return redirect()->route('comics.index')->with('success', 'Comic updated successfully!');
     }
+
 
     // Cancella un fumetto
     public function destroy($id)
