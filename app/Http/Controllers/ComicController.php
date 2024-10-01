@@ -39,6 +39,19 @@ class ComicController extends Controller
             'series' => 'required|string|max:255',
             'sale_date' => 'required|date',
             'type' => 'required|string|max:50',
+        ], [
+            // Messaggi di errore personalizzati
+            'title.required' => 'Il titolo è obbligatorio.',
+            'description.required' => 'La descrizione è obbligatoria.',
+            'thumb.required' => 'L\'URL dell\'immagine è obbligatorio.',
+            'thumb.url' => 'Inserisci un URL valido per l\'immagine.',
+            'price.required' => 'Il prezzo è obbligatorio.',
+            'price.numeric' => 'Il prezzo deve essere un valore numerico.',
+            'price.min' => 'Il prezzo non può essere inferiore a 0.',
+            'series.required' => 'La serie è obbligatoria.',
+            'sale_date.required' => 'La data di vendita è obbligatoria.',
+            'sale_date.date' => 'Inserisci una data valida.',
+            'type.required' => 'Il tipo è obbligatorio.',
         ]);
     
         // Se la validazione ha successo, crea un nuovo fumetto
@@ -82,12 +95,25 @@ class ComicController extends Controller
             'series' => 'required|string|max:255',
             'sale_date' => 'required|date',
             'type' => 'required|string|max:50',
+        ], [
+            // Messaggi di errore personalizzati
+            'title.required' => 'Il titolo è obbligatorio.',
+            'description.required' => 'La descrizione è obbligatoria.',
+            'thumb.required' => 'L\'URL dell\'immagine è obbligatorio.',
+            'thumb.url' => 'Inserisci un URL valido per l\'immagine.',
+            'price.required' => 'Il prezzo è obbligatorio.',
+            'price.numeric' => 'Il prezzo deve essere un valore numerico.',
+            'price.min' => 'Il prezzo non può essere inferiore a 0.',
+            'series.required' => 'La serie è obbligatoria.',
+            'sale_date.required' => 'La data di vendita è obbligatoria.',
+            'sale_date.date' => 'Inserisci una data valida.',
+            'type.required' => 'Il tipo è obbligatorio.',
         ]);
-    
+
         // Troviamo il fumetto esistente e lo aggiorniamo
         $comic = Comic::findOrFail($id);
         $comic->update($validatedData);
-    
+
         return redirect()->route('comics.index')->with('success', 'Comic updated successfully!');
     }
 

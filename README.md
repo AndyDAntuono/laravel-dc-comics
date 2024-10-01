@@ -56,3 +56,4 @@ sempre lavorando sulla repo di ieri, potete aggiungere le validazioni in modo da
 - modifico i file comics.php, DatabaseSeeder.php e 2024_09_30_163634_create_comics_table.php per popolare correttamente il database. Dopo di che lancio il comando php artisan       migrate:refresh --seed
 - modifico il metodo store ed ci aggiungo delle regole di validazione.
 - modifico il metodo update ed ci aggiungo anche qui delle regole di validazione.
+- aggiungo i messaggi d'errore personalizzati nei metodi.
