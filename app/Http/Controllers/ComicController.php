@@ -20,12 +20,32 @@ class ComicController extends Controller
     }
 
     // Salva un nuovo fumetto nel database
+    //public function store(Request $request)
+    //{
+    //    $comic = new Comic($request->all());
+    //    $comic->save();
+//
+    //    return redirect()->route('comics.index'); // Reindirizza alla lista dei fumetti
+    //}
+
     public function store(Request $request)
     {
-        $comic = new Comic($request->all());
+        // Definisci le regole di validazione
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumb' => 'required|url',
+            'price' => 'required|numeric|min:0',
+            'series' => 'required|string|max:255',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:50',
+        ]);
+    
+        // Se la validazione ha successo, crea un nuovo fumetto
+        $comic = new Comic($validatedData); // Usa i dati validati
         $comic->save();
-
-        return redirect()->route('comics.index'); // Reindirizza alla lista dei fumetti
+    
+        return redirect()->route('comics.index')->with('success', 'Comic created successfully!');
     }
 
     // Mostra un singolo fumetto

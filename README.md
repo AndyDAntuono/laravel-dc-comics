@@ -19,12 +19,16 @@ Iniziate a definire le prime operazioni CRUD con le relative view:
 Bonus: Per popolare la tabella utilizzate nel seeder il file in allegato.
 
 
-/*CONSEGNA DEL 30/09/24*/
+/*CONSEGNA DEL 30-09-24*/
 
 oggi lavorate sulla stessa repo di venerdì e completate le operazioni CRUD.
 Bonus 1:
 tramite javascript, quando l'utente clicca sul pulsante "delete", chiedere conferma della cancellazione, prima di eliminare l'elemento. La richiesta di cancellazione avviene tramite onclick e confirm
 Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conferma della cancellazione del record.
+
+/*CONSEGNA DEL 01-10-24*/
+
+sempre lavorando sulla repo di ieri, potete aggiungere le validazioni in modo da rendere più stabile il vostro gestionale di fumetti.
 
 /*SOLUZIONE*/ 
 - dopo aver completato le operazioni preliminari (creazione dei progetto base di laravel), modifico il nome del database in "laravel-dc-comics" e creo un omonimo database in phpMyAdnmin. 
@@ -49,5 +53,5 @@ Bonus 2: Realizzare una modale di bootstrap attraverso la quale chiedere la conf
         - dato che sono ciuccio, non mi ero accorto di non aver creato i layout comune per tutte le views
     - creo show.blade.php per visaulizzare un singolo fumetto
     - creo update.blade.php per rendere possibile la modifica di un fumetto esistente.
-
-NB: non riesco a visualizzare correttamente le views, ma almeno ci dovrebero essere tutti i file della repo.
+- modifico i file comics.php, DatabaseSeeder.php e 2024_09_30_163634_create_comics_table.php per popolare correttamente il database. Dopo di che lancio il comando php artisan       migrate:refresh --seed
+- modifico il metodo store e aggiungiungo delle regole di validazione.
